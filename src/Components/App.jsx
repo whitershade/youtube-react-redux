@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-expressions */
 import React, { PureComponent } from 'react';
 import { debounce }             from 'lodash';
+import PropTypes                from 'prop-types';
 import YoutubeApiSearch         from 'youtube-api-search';
 import styled, { injectGlobal } from 'styled-components';
 import Video                    from './Video';
 import SearchBar                from './SearchBar';
-import VideosList               from './VideosList';
+import VideosList               from '../Containers/VideosList';
 
 const API_KEY = 'AIzaSyAxq7xyS28OrPiqN_tpfrAfHKc4m0U1xSU';
 
@@ -40,6 +41,10 @@ export default class App extends PureComponent {
     };
 
     this.youtubeApiSearch(this.state.searchText);
+  }
+
+  componentDidMount() {
+    this.props.getVideos();
   }
 
   youtubeApiSearch(term) {

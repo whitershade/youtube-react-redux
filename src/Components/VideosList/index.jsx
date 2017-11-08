@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled    from 'styled-components';
 import Video     from './VideoItem';
 
-
 const StyledUl = styled.ul`
   list-style: none;
   padding: 0;
@@ -20,11 +19,9 @@ const Videos = ({ videos, changeSelectedVideo }) => (
       />)) }
   </StyledUl>
 );
-
 Videos.propTypes = {
   changeSelectedVideo: PropTypes.func.isRequired,
   videos: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
 
 export default Videos;
